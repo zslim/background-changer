@@ -19,5 +19,15 @@ do
   read folder
 done
 
-# Saving the valid folder path
+## Saving the valid folder path
 folder > path_for_folder.txt
+
+
+# Handling the content of the folder
+file_names=($folder/*)
+rnd=$(shuf -i0-${#array[@]} -n1)
+picture_path=${file_names[$rnd]}
+
+
+# Set background!
+gsettings set org.gnome.desktop.background picture-uri 'file://'"$picture_path"
